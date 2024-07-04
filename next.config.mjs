@@ -2,7 +2,7 @@
 const nextConfig = {
 
     images:{
-        domains:["m.media-amazon.com"]
+        domains:["acdn.mitiendanube.com"]
     }
 };
 
