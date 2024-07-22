@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 export const listaDeLightsticks = [
     {
         id: 1,
@@ -100,19 +101,4 @@ export const listaDeLightsticks = [
 
 export async function GET(){
     return NextResponse.json(listaDeLightsticks)
-}
-
-app/api/[id]/route.js
-import { NextResponse } from "next/server";
-import { listaDeLightsticks } from "../route";
-
-export async function GET(req){
-    const id = parseInt(req.url.split('/api/')[1]);
-    let objeto = null;
-    listaDeLightsticks.forEach((obj)=> {
-        if(obj.id == id){
-           objeto = obj
-        }
-    });
-    return NextResponse.json(objeto);
 }
