@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import Carregamento from "./Carregamento";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -39,7 +40,7 @@ export default function Main() {
     if (listComplete[0] == null) {
       return (
       <main>
-      <p>Error 404</p>
+      <Carregamento/>
       </main>
       );
     }
