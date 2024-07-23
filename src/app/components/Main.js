@@ -9,16 +9,21 @@ export default function Main() {
   const [listaDeLightsticks, setListaDeLightsticks] = useState([]);
   const [listComplete,setListComplete] = useState([]);
   const [search,setSearch] = useState("")
+  const [errorFetch,setErrorFetch] = useState(false);
 
 
-    useEffect( ()=> {
+    useEffect( ()=> { 
       const getLightstick = async ()=>{
+        try{
         const response = await fetch("http://localhost:3000/api/");
         const data = await response.json();
 
         setListaDeLightsticks(data);
         setListComplete(data);
+      }catch{
+        setErrorFetch(true);
       }
+    }   
 
       getLightstick();
     }, []);
@@ -35,6 +40,12 @@ export default function Main() {
         lightstick.title.toUpperCase().trim().includes(search.toUpperCase().trim())
       );
       setListProduct(newList);   
+    }
+
+    if (errorFetch == true){
+      return( 
+      <ErrorGetData/>
+    );
     }
 
     if (listComplete[0] == null) {
