@@ -69,7 +69,8 @@ export default function Main() {
           width={100}
           height={100} alt="lightstick image" />
         <h2>{lightstick.preco} R$</h2>
-        <button >
+        <button >    
+          {/*Eu já havia utilizado o componente Link passando o ID do objeto para rota dinâmica pois queria testa se a página dinâmica funcionava.*/}
           <Link href={`/lightstick/${lightstick.id}`}>Ver mais</Link>
         </button>
       </div>
