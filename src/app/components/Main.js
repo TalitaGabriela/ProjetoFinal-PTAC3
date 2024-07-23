@@ -7,15 +7,13 @@ export default function Main() {
   <main>
     {listaDeLightsticks.map((lightstick) =>
       <div key={lightstick.id}>
-        <p>{lightstick.titulo}</p>
+        <h1>{lightstick.titulo}</h1>
         <Image src={lightstick.imagem}
           width={100}
           height={100} alt="lightstick image" />
-        <p>{lightstick.preco} R$</p>
-        <p>{lightstick.genero}</p>
-        <p>{lightstick.avaliacao} ESTRELAS</p>
+        <h2>{lightstick.preco} R$</h2>
         <button >
-          <Link href={`/api/${lightstick.id}`}>Ver mais</Link>
+          <Link href={`/lightstick/${lightstick.id}`}>Ver mais</Link>
         </button>
       </div>
     )};
