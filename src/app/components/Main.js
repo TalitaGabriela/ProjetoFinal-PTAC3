@@ -39,7 +39,7 @@ export default function Main() {
       const newList =  listaDeLightsticks.filter((lightstick) => 
         lightstick.title.toUpperCase().trim().includes(search.toUpperCase().trim())
       );
-      setListProduct(newList);   
+      setListaDeLightsticks(newList);   
     }
 
     if (errorFetch == true){
