@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Carregamento from "./Carregamento";
+import styles from "./main.module.css"
 import Link from "next/link";
 import Image from "next/image";
 
@@ -78,7 +79,7 @@ export default function Main() {
 
   if (listComplete[0] == null) {
     return (
-      <main>
+      <main className={styles.main}>
         <Carregamento />
       </main>
     );
@@ -86,24 +87,24 @@ export default function Main() {
 
   return (
     <>
-      <div>
-        <input type="text" value={search} placeholder="Pesquise o produto" onChange={(event) => searchText(event.target.value)} />
-        <button onClick={ordAz}>A - Z</button>
-        <button onClick={ordZa}>Z - A</button>
-        <button onClick={ordBaratCaro}>Barato - Caro</button>
-        <button onClick={ordCaroBarat}>Caro - Barato</button>
+      <div className={styles.nav}>
+        <input  className={styles.input} type="text" value={search} placeholder="Pesquise o produto" onChange={(event) => searchText(event.target.value)} />
+        <button onClick={ordAz} className={styles.button}>A - Z</button>
+        <button onClick={ordZa} className={styles.button}>Z - A</button>
+        <button onClick={ordBaratCaro} className={styles.button}>Barato - Caro</button>
+        <button onClick={ordCaroBarat} className={styles.button}>Caro - Barato</button>
       </div>
-      <main>
+      <main className={styles.main}>
         {listaDeLightsticks.map((lightstick) =>
-          <div key={lightstick.id}>
-            <h1>{lightstick.titulo}</h1>
+          <div className={styles.card} key={lightstick.id}>
+            <h1 className={styles.titulo}>{lightstick.titulo}</h1>
             <Image src={lightstick.imagem}
               width={100}
               height={100} alt="lightstick image" />
             <h2>{lightstick.preco} R$</h2>
-            <button >
+            <button className={styles.button}>
               {/*Eu já havia utilizado o componente Link passando o ID do objeto para rota dinâmica pois queria testa se a página dinâmica funcionava.*/}
-              <Link href={`/lightstick/${lightstick.id}`}>Ver mais</Link>
+              <Link className={styles.link} href={`/lightstick/${lightstick.id}`}>Ver mais</Link>
             </button>
           </div>
         )}

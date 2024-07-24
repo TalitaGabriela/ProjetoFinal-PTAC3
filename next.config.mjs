@@ -2,7 +2,9 @@
 const nextConfig = {
 
     images:{
-        domains:["acdn.mitiendanube.com"]
+        domains:["acdn.mitiendanube.com",
+            "cdn-icons-png.freepik.com",
+        ]
     }
 };
 
